@@ -1,0 +1,80 @@
+<div class="home">
+    <div class="text-container">
+        <h1>Organize sua vida, conquiste seu dia!</h1>
+        <p>Transforme suas metas em realidade com o MyDayTask. Crie, gerencie e alcance seus objetivos diários de forma
+            simples e eficiente.</p>
+    </div>
+
+    <div class="card">
+        <div class="form-controll">
+            <form action="/submit" method="post">
+                <h2>Comece agora!!</h2>
+                <input type="text" name="title" placeholder="O que vai fazer?">
+                <input type="text" name="description" placeholder="Tenho que...">
+                <div class="button-form">
+                    <input type="radio" id="urgente" name="type" value="Urgente" checked>
+                    <label for="urgente">Urgente</label>
+
+                    <input type="radio" id="prorrogavel" name="type" value="Prorrogável">
+                    <label for="prorrogavel">Prorrogável</label>
+                </div>
+
+                <input type="submit" value="Criar Tarefa">
+            </form>
+        </div>
+    </div>
+
+    <div class="tasks-container">
+
+        {{#each tasks}}
+
+        <div class="card {{#if this.finished}} task-maked {{/if}}">
+
+            <div class="task-header">
+                <h2>{{this.title}}</h2>
+                {{#if this.type}}
+                <span class="urgente">Urgente</span>
+                {{else}}
+                <span class="prorrogavel">Prorrogável</span>
+                {{/if}}
+            </div>
+            <p>{{this.description}}</p>
+
+            <div class="task-buttons">
+
+                <div class="actions two-buttonns">
+                    <form action="/del/:id" method="post">
+                        <input type="hidden" name="id" value="{{this.id}}">
+                        <input type="submit" value="Apagar" class="del-input">
+                    </form>
+                    <form action="/toggleType/:id" method="post">
+                        <input type="hidden" name="id" value="{{this.id}}">
+                        <input type="hidden" name="type" value="{{this.type}}">
+                        {{#if this.type}}
+                        <input type="submit" value="Prorrogar">
+                        {{else}}
+                        <input type="submit" value="Urgenciar">
+                        {{/if}}
+                    </form>
+                </div>
+                <div class="actions">
+                    <form action="/finished/:id" method="post">
+                        <input type="hidden" name="id" value="{{this.id}}">
+                        <input type="hidden" name="finished" value="{{this.finished}}">
+                        {{#if this.finished}}
+                        <input type="submit" value="Reativar">
+                        {{else}}
+                        <input type="submit" value="Finalizar">
+                        {{/if}}
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        {{/each}}
+
+    </div>
+
+</div>

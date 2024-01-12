@@ -1,0 +1,304 @@
+:root {
+    --background: #e8e8e8;
+    --card: #eeeeee;
+    --button-dark: #373737;
+    --button-light: #ffffff00;
+    --button-grey: #D9D9D9;
+    --button-light-border: #373737;
+    --text-title: #373737;
+    --text-body: #343434;
+    --text-light: #E1E1E1;
+    --text-subtext: #838383;
+    --urgente: #FF0000;
+    --prorrogavel: #FF7A00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    @media screen and (max-width: 1080px) {
+        font-size: 93.75%;
+    }
+
+    @media screen and (max-width: 720px) {
+        font-size: 87.5%;
+    }
+}
+
+body {
+    background: var(--background);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+main {
+    margin: 1rem 2.5rem;
+}
+
+.message {
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.2rem;
+    padding: 1rem 2.5rem;
+    background: var(--button-dark);
+    color: var(--text-light);
+    text-align: center;
+    font-size: 1rem;
+    width: max-content;
+    max-width: 80%;
+}
+
+button,
+input,
+.home form input[type="radio"]+label {
+    transition: filter 0.5s;
+}
+
+button:hover,
+input:hover,
+.home form input[type="radio"]+label:hover {
+    filter: brightness(0.95);
+}
+
+header {
+    display: flex;
+    gap: 0.2rem;
+    padding: 1.5rem 2rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo a {
+    font-size: 1.2rem;
+    font-weight: 100;
+    color: var(--text-body);
+}
+
+header .cta a {
+    padding: 0.6rem 2.5rem;
+    background: transparent;
+    border-radius: 0.2rem;
+    border: none;
+}
+
+header .cta .login,
+header .cta .logout {
+    background: var(--button-dark);
+    color: var(--text-light);
+}
+
+header .cta .register {
+    border: 1px solid var(--button-dark);
+    color: var(--text-body);
+}
+
+.urgente {
+    color: var(--urgente);
+    font-weight: 600;
+}
+
+.prorrogavel {
+    color: var(--prorrogavel);
+    font-weight: 600;
+}
+
+.card {
+    background: var(--card);
+    border-radius: 0.2rem;
+    margin: 0 auto;
+    max-width: 550px;
+    padding: 1.6rem 1rem;
+}
+
+.tasks-container {
+    max-width: 550px;
+    gap: 0.6rem;
+    margin: 0.6rem auto 0;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.tasks-container .card {
+    width: 100%;
+}
+
+.tasks-container .card .task-header {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.tasks-container .card .task-header h2 {
+    color: var(--text-title);
+    font-size: 1.4rem;
+}
+
+.tasks-container .card .task-buttons {
+    display: flex;
+    gap: 0.6rem;
+    flex-direction: column;
+    margin-top: 1.6rem;
+}
+
+.tasks-container .card .task-buttons .two-buttonns {
+    display: flex;
+    gap: 0.2rem;
+    width: 100%;
+}
+
+.tasks-container .card .task-buttons form {
+    width: 100%;
+}
+
+.del-input {
+    background: var(--text-subtext) !important;
+    color: var(--text-light) !important;
+}
+
+.text-container {
+    text-align: center;
+    max-width: 550px;
+    margin: 2.5rem auto 3.5rem;
+}
+
+.text-container h1 {
+    font-size: 1.6rem;
+    padding-bottom: 0.8rem;
+    color: var(--text-title);
+    font-weight: 200;
+    letter-spacing: 0.2rem;
+}
+
+.text-container p {
+    font-size: 1rem;
+    color: var(--text-body);
+    font-weight: 100;
+}
+
+.task-maked {
+    filter: brightness(0.85);
+}
+
+.task-maked h2,
+.task-maked p {
+    text-decoration: line-through;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+form h2 {
+    color: var(--text-subtext);
+    font-size: 1rem;
+}
+
+form input[type="text"],
+.register form input,
+.login form input {
+    padding: 1rem;
+    text-align: center;
+    outline: none;
+    color: var(--text-subtext);
+    border: none;
+    background: var(--background);
+}
+
+.home form input[name="description"] {
+    height: 8rem;
+}
+
+.home .button-form {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.home form input[type="radio"] {
+    display: none;
+}
+
+.home form input[type="radio"]+label {
+    text-align: center;
+    width: 50%;
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.2rem;
+    background: var(--background);
+    color: var(--text-subtext);
+}
+
+.home form input[type="radio"]:checked+label {
+    background-color: var(--button-dark);
+    color: var(--text-light);
+}
+
+.register .name-control {
+    width: 100%;
+    display: flex;
+    gap: 0.2rem;
+}
+
+.register .name-control input[name="name"] {
+    width: 100%;
+}
+
+.register .name-control input[name="lastname"] {
+    width: 60%;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    color: var(--text-light);
+    background-color: var(--button-dark);
+    border: none;
+    border-radius: 0.2rem;
+    padding: 1rem;
+}
+
+footer {
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-subtext);
+}
+
+footer a {
+    color: var(--text-body);
+}
+
+@media screen and (max-width: 450px) {
+    main {
+        margin: 1rem 1.2rem;
+    }
+
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    header .cta a {
+        padding: 0.6rem 1rem;
+        background: transparent;
+        border-radius: 0.2rem;
+        border: none;
+    }
+
+    .register .name-control input[name="lastname"] {
+        width: 80%;
+    }
+}
